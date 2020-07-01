@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}post_change_list.html{% endblock %}
+
+{% block content %}
+
+    <h1>{{ user }}의 글 수정하기</h1>
+    <br>
+
+    <table class="table table-bordered table-sm table-striped">
+        <thead>
+        <tr class="table-primary">
+            <th>제목</th>
+            <th>내용</th>
+            <th>글쓴이</th>
+            <th>수정하기</th>
+            <th>삭제하기</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for item in object_list %}
+        <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.owner }}</td>
+            <td><a href="{% url 'blog:update' item.id %}">수정하기</a></td>
+            <td><a href="{% url 'blog:delete' item.id %}">삭제하기</a></d>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Community</title>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}community_list.html{% endblock %}
+
+    {% block content %}
+        <h1>HOT게시판</h1>
+        <br>
+
+        <ul>
+            {% for community in object_list %}
+            <li><a href="{% url 'community:detail' community.id %}">{{ community }}</a></li>
+            {% endfor %}
+        </ul>
+{% endblock %}
+
+
+</body>
+</html>
